@@ -23,7 +23,7 @@ function preload(){
     bird.body.gravity.y = 1000;
 
     var spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-    spaceKey.onDown.add(this.jump, this);
+    spaceKey.onDown.add(jump, this);
   }
 
   function update(){
@@ -35,7 +35,8 @@ function preload(){
 
   function jump() {
     // Add a vertical velocity to the bird
-    this.bird.body.velocity.y = -350;
+    bird.body.velocity.y = -350;
+    console.log('Fly!', bird);
   }
 
 
