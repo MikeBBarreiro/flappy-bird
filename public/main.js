@@ -26,6 +26,9 @@ var mainState = {
     //load pipe
     game.load.image('pipe', '/assets/pipe.png');
 
+    //load jump sound effect
+    game.load.audio('jump', 'assets/flap.wav');
+
   },
 
   create: function(){
@@ -36,7 +39,7 @@ var mainState = {
 
     //display bird
     this.bird = this.game.add.sprite(100, 245, 'bird');
-    this.bird.scale.setTo(0.5);
+    this.bird.scale.setTo(0.4);
     // this.bird.angle = 100
 
     //add gravity to the bird
@@ -60,6 +63,9 @@ var mainState = {
 
     // changes the anchor spot
     this.bird.anchor.setTo(-0.2, 0.5);
+
+    // Add the jump sounf effect
+    this.jumpSound = game.add.audio('jump');
 
   },
 
@@ -120,6 +126,9 @@ var mainState = {
 
     // And start the animation
     animation.start();
+
+    // pay jump sound effect
+    this.jumpSound.play();
   },
 
   hitPipe: function() {
